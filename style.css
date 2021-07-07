@@ -8,8 +8,9 @@ html {
   *, *::before, *::after {
       box-sizing: inherit;
   }
-  .header-first {
+  .header-first { /* Redundanciát sejtek. Mi haszna van minden egyes elemet külön stílussal ellátni azon kívül, hogy négyszer kell leírnod? */
     margin-top: 40px;
+    position: relative; /* ehhez a csomóponthoz képest lesz relatív a lejjebb abszolút pozícionált elem. */
   }
 
   .dropdown-background-line {
@@ -30,13 +31,14 @@ html {
   }
  
   .overlay-dropdown {
-    display: none;
+    display: none; /* Javaslat: érdemes összevonni a teljesen azonos szelektorokat egybe */
   }
   .overlay-dropdown:target {
     display: block;
   }
   .overlay-dropdown {
-    width: 130%;
+    position: absolute; /* ahogy tanultuk, ki kell venni az elemet az alapértelmezett renderelt helyéről */
+    width: 325px; /* ne használj %-ot, mert akkor függ, hogy melyik elemhez képest mérjük. */
     height: auto;
     background-color: #59a498;
   
